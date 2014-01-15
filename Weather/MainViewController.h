@@ -9,5 +9,19 @@
 #import "FlipsideViewController.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
+{
+    IBOutlet UIActivityIndicatorView *loadingIndicator;
+    
+    IBOutlet UILabel *nameLabel;
+    IBOutlet UILabel *dateLabel;
+    
+    IBOutlet UIImageView *nowImage;
+    IBOutlet UILabel *nowTempLabel;
+    
+    IBOutlet UIButton *refreshButton;
+}
+
+- (IBAction)refreshView:(id)sender;
+- (void)updateView;
 
 @end
