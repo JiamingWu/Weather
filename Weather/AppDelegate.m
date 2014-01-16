@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WeatherForecast.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,10 @@
 {
     // Override point for customization after application launch.
     NSLog(@"application did finish launch.");
+    
+    WeatherForecast *forecast = [[WeatherForecast alloc] init];
+    
+    
     return YES;
 }
 							
