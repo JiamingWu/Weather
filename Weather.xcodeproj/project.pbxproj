@@ -118,6 +118,8 @@
 		9F07A0221884A6030037F89A /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				EC97159A188636BF0024D977 /* WeatherForecast.h */,
+				EC97159B188636BF0024D977 /* WeatherForecast.m */,
 				9F07A02B1884A6030037F89A /* AppDelegate.h */,
 				9F07A02C1884A6030037F89A /* AppDelegate.m */,
 				9F07A02E1884A6030037F89A /* Main.storyboard */,
