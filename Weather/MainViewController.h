@@ -7,6 +7,7 @@
 //
 
 #import "FlipsideViewController.h"
+#import "WeatherForecast.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
 {
@@ -20,6 +21,8 @@
     
     IBOutlet UIButton *refreshButton;
 }
+
+@property (strong, nonatomic) WeatherForecast *forecast;
 
 - (IBAction)refreshView:(id)sender;
 - (void)updateView;

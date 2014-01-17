@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WeatherForecast.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
@@ -17,7 +18,8 @@
     NSLog(@"application did finish launch.");
     
     WeatherForecast *forecast = [[WeatherForecast alloc] init];
-    
+    MainViewController *view = (MainViewController *)self.window.rootViewController;
+    view.forecast = forecast;
     
     return YES;
 }

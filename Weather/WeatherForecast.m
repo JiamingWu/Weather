@@ -8,6 +8,7 @@
 
 #import "WeatherForecast.h"
 #import "MainViewController.h"
+#import "XPathQuery.h"
 
 @implementation WeatherForecast
 
@@ -47,7 +48,52 @@
                          initWithBytes:[responseData bytes] length:[responseData length] encoding:NSUTF8StringEncoding];
     NSLog(@"Data = %@", content);
     
+    NSString *xpathQueryString;
+    NSArray *nodes;
+    
+    xpathQueryString = @"//channel/location/@city"; //location 有 namespace, 但此行是可運作的, 原因不明.
+    nodes = PerformHTMLXPathQuery(responseData, xpathQueryString);
+    self.location = [self fetchContent:nodes];
+    NSLog(@"location = %@", self.location);
+    
+    xpathQueryString = @"//condition/@date";
+    nodes = PerformHTMLXPathQuery(responseData, xpathQueryString);
+    self.date = [self fetchContent:nodes];
+    NSLog(@"date = %@", self.date);
+    
+    self.icon = @"http://l.yimg.com/a/i/us/we/52/30.gif";
+    NSLog(@"icon = %@", self.icon);
+    
+    xpathQueryString = @"//condition/@temp";
+    nodes = PerformHTMLXPathQuery(responseData, xpathQueryString);
+    self.temp = [NSString stringWithFormat:@"%@C", [self fetchContent:nodes]];
+    NSLog(@"temp = %@", self.temp);
+    
     [viewController updateView];
+}
+
+- (NSString *)fetchContent:(NSArray *)nodes
+{
+    NSString *result = @"";
+    for (NSDictionary *node in nodes) {
+        for (id key in node) {
+            if ([key isEqualToString:@"nodeContent"]) {
+                result = [node objectForKey:key];
+            }
+        }
+    }
+    return result;
+}
+
+- (void)populateArray:(NSMutableArray *)array fromNodes:(NSArray*)nodes
+{
+    for (NSDictionary *node in nodes) {
+        for (id key in node) {
+            if ([key isEqualToString:@"nodeContent"]) {
+                [array addObject:[node objectForKey:key]];
+            }
+        }
+    }
 }
 
 @end

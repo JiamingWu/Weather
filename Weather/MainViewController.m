@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self refreshView:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +39,22 @@
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self];
     }
+}
+
+- (IBAction)refreshView:(id)sender
+{
+    [loadingIndicator startAnimating];
+    [self.forecast queryService:@"2306179" withParent:self];
+}
+
+- (void)updateView
+{
+    [loadingIndicator stopAnimating];
+    nameLabel.text = self.forecast.location;
+    dateLabel.text = self.forecast.date;
+    nowTempLabel.text = self.forecast.temp;
+    
+    //NSURL *url = [NSURL URLWithString:<#(NSString *)#>]
 }
 
 @end
