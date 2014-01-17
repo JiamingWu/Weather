@@ -23,6 +23,8 @@
 		9F07A0491884A6040037F89A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F07A0471884A6040037F89A /* InfoPlist.strings */; };
 		9F07A04B1884A6040037F89A /* WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F07A04A1884A6040037F89A /* WeatherTests.m */; };
 		9F07BD2A1886055E0024174F /* WeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F07BD291886055E0024174F /* WeatherForecast.m */; };
+		9F090CF41888A38000116452 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F090CF31888A38000116452 /* XPathQuery.m */; };
+		9F090CF61888A3BC00116452 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F090CF51888A3BC00116452 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		9F07A04A1884A6040037F89A /* WeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherTests.m; sourceTree = "<group>"; };
 		9F07BD281886055E0024174F /* WeatherForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherForecast.h; sourceTree = "<group>"; };
 		9F07BD291886055E0024174F /* WeatherForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherForecast.m; sourceTree = "<group>"; };
+		9F090CF21888A38000116452 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		9F090CF31888A38000116452 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		9F090CF51888A3BC00116452 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F090CF61888A3BC00116452 /* libxml2.dylib in Frameworks */,
 				9F07A01F1884A6030037F89A /* CoreGraphics.framework in Frameworks */,
 				9F07A0211884A6030037F89A /* UIKit.framework in Frameworks */,
 				9F07A01D1884A6030037F89A /* Foundation.framework in Frameworks */,
@@ -107,6 +113,7 @@
 		9F07A01B1884A6030037F89A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F090CF51888A3BC00116452 /* libxml2.dylib */,
 				9F07A01C1884A6030037F89A /* Foundation.framework */,
 				9F07A01E1884A6030037F89A /* CoreGraphics.framework */,
 				9F07A0201884A6030037F89A /* UIKit.framework */,
@@ -118,8 +125,8 @@
 		9F07A0221884A6030037F89A /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				EC97159A188636BF0024D977 /* WeatherForecast.h */,
-				EC97159B188636BF0024D977 /* WeatherForecast.m */,
+				9F090CF21888A38000116452 /* XPathQuery.h */,
+				9F090CF31888A38000116452 /* XPathQuery.m */,
 				9F07A02B1884A6030037F89A /* AppDelegate.h */,
 				9F07A02C1884A6030037F89A /* AppDelegate.m */,
 				9F07A02E1884A6030037F89A /* Main.storyboard */,
@@ -265,6 +272,7 @@
 				9F07BD2A1886055E0024174F /* WeatherForecast.m in Sources */,
 				9F07A0331884A6040037F89A /* MainViewController.m in Sources */,
 				9F07A0361884A6040037F89A /* FlipsideViewController.m in Sources */,
+				9F090CF41888A38000116452 /* XPathQuery.m in Sources */,
 				9F07A0291884A6030037F89A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,7 +402,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weather/Weather-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "Weather/Weather-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -407,7 +421,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weather/Weather-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "Weather/Weather-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
