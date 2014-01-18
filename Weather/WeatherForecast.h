@@ -20,7 +20,7 @@
 @property (weak, nonatomic) NSString *location;
 @property (weak, nonatomic) NSString *date;
 
-@property (weak, nonatomic) UIImage *icon;
+@property (weak, nonatomic) NSString *icon;
 @property (weak, nonatomic) NSString *temp;
 
 -(void)queryService:(NSString *)city withParent:(UIViewController *)controller;

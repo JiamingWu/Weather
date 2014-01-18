@@ -60,9 +60,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLq-ZH-BMi">
-                                <rect key="frame" x="206" y="522" width="46" height="30"/>
+                                <rect key="frame" x="219" y="246" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="refreshView:" destination="rQl-PL-IFJ" eventType="touchUpInside" id="avY-kS-JFm"/>
                                 </connections>

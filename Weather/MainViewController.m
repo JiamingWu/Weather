@@ -54,7 +54,9 @@
     dateLabel.text = self.forecast.date;
     nowTempLabel.text = self.forecast.temp;
     
-    //NSURL *url = [NSURL URLWithString:<#(NSString *)#>]
+    NSURL *url = [NSURL URLWithString:self.forecast.icon];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    nowImage.image = [[UIImage alloc]initWithData:data];
 }
 
 @end
